@@ -1,0 +1,64 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "one-var": "off",
+    "no-var": "error",
+    "quotes": "off",
+    "global-require": "off",
+    "one-var-declaration-per-line": "off",
+    "arrow-body-style": "off",
+    "indent": "off",
+    "lines-between-class-members": "off",
+    "no-trailing-spaces": "off",
+    "no-path-concat": "off",
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "eqeqeq": [
+      "error",
+      "always",
+      {
+        "null": "ignore"
+      }
+    ],
+    "dot-notation": 2,
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "debug",
+          "warn",
+          "error"
+        ]
+      }
+    ],
+    "no-extra-bind": [
+      "error"
+    ],
+    "no-undef": 0,
+    "no-unused-vars": [
+      "warn",
+      {
+        "args": "none"
+      }
+    ],
+    "no-eval": 2,
+    "no-new-func": 2,
+    "linebreak-style": "off",
+    "arrow-parens": "off",
+    "import/no-extraneous-dependencies": "off",
+    "spaced-comment": "off"
+  },
+  "overrides": [
+    {
+      "files": ["tests/**/*.js"],
+      "rules": {
+        "no-unused-expressions": "off",
+        "prefer-const": "off",
+        "prefer-promise-reject-errors": "off",
+        "func-names": "off"
+      }
+    }
+  ]
+}

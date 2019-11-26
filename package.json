@@ -1,0 +1,45 @@
+{
+  "name": "docker-kubernetes",
+  "version": "1.0.0",
+  "description": "To create a mini app with docker and kubernetes",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -t 30000 ./tests/init.js ./tests/unit/**/*.js --exit",
+    "start:dev": "nodemon index.js",
+    "start:prod": "node index.js",
+    "lint": "eslint ./**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BriandFMarie/docker-kubernetes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BriandFMarie/docker-kubernetes/issues"
+  },
+  "homepage": "https://github.com/BriandFMarie/docker-kubernetes#readme",
+  "dependencies": {
+    "body-parser": "~1.19.0",
+    "cors": "~2.8.5",
+    "dotenv": "~8.2.0",
+    "express": "~4.17.1",
+    "helmet": "~3.21.0",
+    "mongoose": "~5.7.8",
+    "winston": "~3.2.1"
+  },
+  "devDependencies": {
+    "chai": "~4.2.0",
+    "eslint": "~6.4.0",
+    "eslint-config-airbnb": "~18.0.1",
+    "eslint-plugin-import": "~2.18.2",
+    "eslint-plugin-jsx-a11y": "~6.2.3",
+    "eslint-plugin-react": "~7.14.3",
+    "eslint-plugin-react-hooks": "~1.7.0",
+    "mocha": "~6.2.0",
+    "mock-require": "~3.0.3",
+    "nodemon": "~1.19.4",
+    "sinon": "~7.4.2",
+    "sinon-chai": "~3.3.0"
+  }
+}

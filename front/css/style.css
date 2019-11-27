@@ -157,6 +157,7 @@ a.return:hover>i {
     position: absolute;
     bottom: 0;
     transition: 2s ease-in-out;
+    height: 0;
 }
 .results>.result>i {
     position: absolute;

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha -t 30000 ./tests/init.js ./tests/unit/**/*.js --exit",
     "start:dev": "./node_modules/.bin/nodemon index.js",
-    "start:prod": "node index.js",
+    "start:prod": "cross-env NODE_ENV=production node index.js",
     "lint": "./node_modules/.bin/eslint ./**/*.js"
   },
   "repository": {
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "chai": "~4.2.0",
+    "cross-env": "~6.0.3",
     "eslint": "~6.4.0",
     "eslint-config-airbnb": "~18.0.1",
     "eslint-plugin-import": "~2.18.2",

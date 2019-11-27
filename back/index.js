@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 
 // To add logger
 const logger = require('./src/config/logger');
+const VoteController = require('./src/controllers/VoteController');
 
 // Variables
 const app = express();
@@ -29,6 +30,9 @@ mongoose.connect(process.env.MONGO_URI, {
         app.listen(3000, resolve).on('error', reject);
     }))
     .then(() => logger.info(`Server is now running in ${process.env.NODE_ENV || 'development'} on port 3000`))
+    .then(() => {
+        app.use('/api/v1/vote', VoteController)
+    })
     .catch(err => {
         logger.error(`Error: ${err}`);
         throw err;

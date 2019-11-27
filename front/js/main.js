@@ -17,6 +17,18 @@ $(document).ready(function() {
         })
     });
     /**
+     * Cette fonction gere le click sur un choix (chien/chat)
+     */
+    $(".choice>i").on("click", function () {
+        var currentStep = $(this).parents(".container").attr("data-step"),
+            urlToPing = $(this).parents(".choice").attr("data-voteurl");
+        $.ajax({
+            type: "GET",
+            url: urlToPing
+        });
+        displayStep(parseInt(currentStep) + 1);
+    })
+    /**
      * Cette fonction gère l'affichage d'une step
      */
     function displayStep(step, currentStep) {
@@ -43,17 +55,4 @@ $(document).ready(function() {
             currentMarginLeft = parseInt(currentStep) * 100;
         $(this).css("left", currentMarginLeft + "%");
     });
-
-    /**
-     * Cette fonction gere le click sur un choix (chien/chat)
-     */
-    $(".choice>i").on("click", function () {
-        var currentStep = $(this).parents(".container").attr("data-step"),
-            urlToPing = $(this).parents(".choice").attr("data-voteurl");
-        $.ajax({
-            type: "GET",
-            url: urlToPing
-        });
-        displayStep(parseInt(currentStep) + 1);
-    })
 });

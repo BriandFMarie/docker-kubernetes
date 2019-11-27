@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var multiple = 8;
     /**
      * Cette fonction ajoute les résultats
      */
@@ -8,14 +9,18 @@ $(document).ready(function() {
                 url: "http://localhost:3000/api/v1/vote",
                 success: function(data) {
                     let cat = data.result[0].voteCats,
-                        dog = data.result[0].voteDogs;
-                    heightDog = Math.round((dog / (cat + dog) * 100) * 2);
-                    heightCat = (200 - heightDog > 100) ? 200 - heightDog - 1 : 200 - heightDog;
+                        dog = data.result[0].voteDogs,
+                        total = cat + dog;
+                    $(".total").each(function() {
+                        $(this).html(total + " votants")
+                    })
+                    heightDog = Math.round((dog / (cat + dog) * 100) * multiple);
+                    heightCat = ((100 * multiple) - heightDog > 100) ? (100 * multiple) - heightDog - 1 : (100 * multiple) - heightDog;
                     $(".result.cat").each(function() {
-                        $(this).attr("data-height", heightCat).find("span.nbr").html(Math.ceil((heightCat / 2)) + "%");
+                        $(this).attr("data-height", heightCat).find("span.nbr").html(Math.ceil((heightCat / multiple)) + "%");
                     })
                     $(".result.dog").each(function() {
-                        $(this).attr("data-height", heightDog).find("span.nbr").html(Math.ceil((heightDog / 2)) + "%");
+                        $(this).attr("data-height", heightDog).find("span.nbr").html(Math.ceil((heightDog / multiple)) + "%");
                     })
 
                 }
@@ -39,7 +44,7 @@ $(document).ready(function() {
     function doTransitionOnResult() {
         $(".result").each(function() {
             $(this).height($(this).attr("data-height"));
-            $(this).find("span.nbr").html(parseInt($(this).attr("data-height")) / 2);
+            $(this).find("span.nbr").html(parseInt($(this).attr("data-height")) / multiple);
         })
     }
     /**

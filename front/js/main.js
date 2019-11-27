@@ -1,5 +1,8 @@
 
 $(document).ready(function() {
+    /**
+     * Cette fonction ajoute les résultats
+     */
     $(".results").each(function () {
         $.ajax({
             url: "/api/v1/vote",
@@ -8,6 +11,8 @@ $(document).ready(function() {
                     dog = data.dog;
                 $(".result.cat").height(cat);
                 $(".result.dog").height(dog);
+                $(".result.cat>.nbr").html(cat);
+                $(".result.dog>.nbr").html(dog);
             }
         })
     });

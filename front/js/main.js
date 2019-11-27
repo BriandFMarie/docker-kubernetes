@@ -11,10 +11,14 @@ $(document).ready(function() {
                     dog = data.dog;
                 $(".result.cat").height(cat);
                 $(".result.dog").height(dog);
-                $(".result.cat>.nbr").html(cat);
-                $(".result.dog>.nbr").html(dog);
+                $(".result.cat>.nbr").html($(".result.cat").height());
+                $(".result.dog>.nbr").html($(".result.dog").height());
             }
         })
+    });
+    $(".result").each(function () {
+        $(this).attr("data-height", 150);//$(this).height());
+        $(this).height(0);
     });
     /**
      * Cette fonction gere le click sur un choix (chien/chat)
@@ -27,22 +31,37 @@ $(document).ready(function() {
             url: urlToPing
         });
         displayStep(parseInt(currentStep) + 1);
-    })
+    });
+    function doTransitionOnResult()
+    {
+        $(".result").each(function () {
+            $(this).height($(this).attr("data-height"));
+            $(this).find("span.nbr").html(parseInt($(this).attr("data-height")) / 2);
+        })
+    }
     /**
      * Cette fonction gère l'affichage d'une step
      */
-    function displayStep(step, currentStep) {
+    function displayStep(step) {
         $(".container").each(function () {
             $(this).css({left: (parseInt($(this).attr("data-step")) * 100) + "%"})
         });
         let oldMargin =(parseInt($(this).attr("data-step")) * 100) + "%";
         $('.container[data-step="' + step + '"]').css({left: 0, "z-index": 10}).attr("data-old", oldMargin);
+        doTransitionOnResult();
     }
 
     /**
      * Cette fonction gère un click sur un bouton return
      */
-    $("a.return").on("click", function (event) {
+    $("a.return:not(.red)").on("click", function (event) {
+        event.preventDefault();
+        displayStep(parseInt($(this).attr("data-return")));
+        $(".result").each(function () {
+            $(this).height(0);
+        });
+    });
+    $("a.return.red").on("click", function (event) {
         event.preventDefault();
         displayStep(parseInt($(this).attr("data-return")));
     });

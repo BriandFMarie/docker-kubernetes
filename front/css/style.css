@@ -30,7 +30,7 @@ p {
     text-align: center;
     position: absolute;
     top: 0;
-    transition: 1s ease-in-out;
+    transition: 0.5s ease-in-out;
     background: #ffa259;
 }
 .container h1 {
@@ -148,7 +148,7 @@ a.return:hover>i {
     width: 50%;
     display: flex;
     justify-content: space-between;
-    bottom: 50px;
+    bottom: 100px;
     height: 200px;
     left: 25%;
 }
@@ -156,6 +156,7 @@ a.return:hover>i {
     width: 50px;
     position: absolute;
     bottom: 0;
+    transition: 2s ease-in-out;
 }
 .results>.result>i {
     position: absolute;
@@ -178,7 +179,15 @@ a.return:hover>i {
 .result>span {
     position: absolute;
     bottom: -50px;
-    text-align: center;
     font-size: 2.2rem;
     color: rgba(255,255,255,0.8);
+    font-weight: 900;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.result:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
 }

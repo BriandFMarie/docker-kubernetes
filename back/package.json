@@ -4,10 +4,10 @@
   "description": "To create a mini app with docker and kubernetes",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -t 30000 ./tests/init.js ./tests/unit/**/*.js --exit",
-    "start:dev": "nodemon index.js",
+    "test": "./node_modules/.bin/mocha -t 30000 ./tests/init.js ./tests/unit/**/*.js --exit",
+    "start:dev": "./node_modules/.bin/nodemon index.js",
     "start:prod": "node index.js",
-    "lint": "eslint ./**/*.js"
+    "lint": "./node_modules/.bin/eslint ./**/*.js"
   },
   "repository": {
     "type": "git",

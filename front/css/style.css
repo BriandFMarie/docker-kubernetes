@@ -262,6 +262,11 @@ a.return:hover>i {
     text-align: center;
 }
 
+.result>span.nbr::after {
+    content: "%";
+    font-size: 2rem;
+}
+
 .result:hover {
     transform: scale(1.2);
     transition: 0.2s ease-in-out;

@@ -34,6 +34,16 @@ p {
     background: #ffa259;
 }
 
+.container *::selection {
+    background: rgba(255, 255, 255, 0.8);
+    color:  #ffa259;
+}
+
+.container * {
+
+    letter-spacing: 10px;
+}
+
 .container h1 {
     position: absolute;
     top: 0;
@@ -65,14 +75,24 @@ p {
     top: 0;
 }
 
-.dog {
+div.dog {
     background: #fa4252;
     color: #fff;
 }
 
-.cat {
+.cat::selection {
     color: #fa4252;
     background: #fff;
+}
+
+div.cat {
+    color: #fa4252;
+    background: #fff;
+}
+
+.dog::selection {
+    background: #fa4252;
+    color: #fff;
 }
 
 .choice>i {
@@ -104,21 +124,51 @@ h1>span:last-of-type {
     margin-left: 50px;
 }
 
-.choice::before {
+.choice.dog::before {
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+    content: "\e900";
+    width: 100%;
+    text-align: center;
+    left: 0;
+    font-family: "icomoon";
+    position: absolute;
+    display: block;
+    font-weight: 900;
+    font-size: 25rem;
+}
+
+.choice.cat::before {
     transition: 0.2s ease-in-out;
     opacity: 0;
     content: "\f1b0";
+    font-family: 'Font Awesome 5 Free';
     position: absolute;
     display: block;
-    font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     font-size: 25rem;
     left: calc(50% - 225px);
 }
 
 .choice:hover::before {
-    transition: 0.2s ease-in-out;
+    animation-duration: 1s;
+    animation-name: datTransition;
     opacity: 0.4;
+}
+
+@keyframes datTransition {
+    0% {
+        transform: scale(1.1);
+        filter: blur(4px);
+    }
+    25% {
+        transform: scale(1.3);
+        filter: blur(2px);
+    }
+    100% {
+        transform: scale(1);
+        filter: blur(1px);
+    }
 }
 
 .container>.thanks {
@@ -210,6 +260,11 @@ a.return:hover>i {
     left: 0;
     right: 0;
     text-align: center;
+}
+
+.result>span.nbr::after {
+    content: "%";
+    font-size: 2rem;
 }
 
 .result:hover {

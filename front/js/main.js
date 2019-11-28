@@ -15,7 +15,7 @@ $(document).ready(function() {
     function getResult() {
         $(".results").each(function() {
             $.ajax({
-                url: "http://localhost:3000/api/v1/vote",
+                url: "/api/v1/vote",
                 success: function(data) {
                     let cat = data.result[0].voteCats,
                         dog = data.result[0].voteDogs,

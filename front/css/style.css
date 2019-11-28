@@ -1,0 +1,285 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.5rem;
+    text-transform: uppercase;
+    position: relative;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    z-index: 9;
+}
+
+p {
+    font-size: 1rem;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    transition: 0.5s ease-in-out;
+    background: #ffa259;
+}
+
+.container *::selection {
+    background: rgba(255, 255, 255, 0.8);
+    color:  #ffa259;
+}
+
+.container * {
+
+    letter-spacing: 10px;
+}
+
+.container h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    height: 25vh;
+    line-height: 25vh;
+    z-index: 1;
+}
+
+.choice {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 50%;
+    z-index: 0;
+    padding: 50px;
+}
+
+.container>.choice:first-of-type::after {
+    height: 100vh;
+    width: 6px;
+    background: #fff;
+    opacity: 0.6;
+    content: "";
+    position: absolute;
+    right: -3px;
+    top: 0;
+}
+
+div.dog {
+    background: #fa4252;
+    color: #fff;
+}
+
+.cat::selection {
+    color: #fa4252;
+    background: #fff;
+}
+
+div.cat {
+    color: #fa4252;
+    background: #fff;
+}
+
+.dog::selection {
+    background: #fa4252;
+    color: #fff;
+}
+
+.choice>i {
+    font-size: 10rem;
+    display: inline;
+    text-align: center;
+    width: 100%;
+}
+
+.choice>i::before {
+    cursor: pointer;
+}
+
+h1>span {
+    font-size: 4rem;
+}
+
+h1>span:first-of-type {
+    color: #fa4252;
+}
+
+.red,
+.red * {
+    color: #fa4252 !important;
+}
+
+h1>span:last-of-type {
+    color: white;
+    margin-left: 50px;
+}
+
+.choice.dog::before {
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+    content: "\e900";
+    width: 100%;
+    text-align: center;
+    left: 0;
+    font-family: "icomoon";
+    position: absolute;
+    display: block;
+    font-weight: 900;
+    font-size: 25rem;
+}
+
+.choice.cat::before {
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+    content: "\f1b0";
+    font-family: 'Font Awesome 5 Free';
+    position: absolute;
+    display: block;
+    font-weight: 900;
+    font-size: 25rem;
+    left: calc(50% - 225px);
+}
+
+.choice:hover::before {
+    animation-duration: 1s;
+    animation-name: datTransition;
+    opacity: 0.4;
+}
+
+@keyframes datTransition {
+    0% {
+        transform: scale(1.1);
+        filter: blur(4px);
+    }
+    25% {
+        transform: scale(1.3);
+        filter: blur(2px);
+    }
+    100% {
+        transform: scale(1);
+        filter: blur(1px);
+    }
+}
+
+.container>.thanks {
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 25vh;
+    height: 75vh;
+    line-height: 25vh;
+}
+
+.thanks>h2 {
+    font-size: 8rem;
+    line-height: 12rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.thanks>i {
+    font-size: 10rem;
+    line-height: 15rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+a.return {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    display: block;
+    z-index: 2;
+}
+
+a.return>i {
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+}
+
+a.return:hover>i {
+    color: #fff;
+    transition: 0.2s;
+}
+
+.results {
+    position: absolute;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    bottom: 100px;
+    height: 200px;
+    left: 25%;
+}
+
+.results>.result {
+    width: 100px;
+    position: absolute;
+    bottom: 0;
+    transition: 2s ease-in-out;
+    height: 0;
+}
+
+.results>.result>i {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100px;
+    text-align: center;
+    font-size: 2.2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.result.cat {
+    background: #b52b65;
+    left: 0;
+}
+
+.result.dog {
+    background: #4d80e4;
+    right: 0;
+}
+
+.result>span {
+    position: absolute;
+    bottom: -50px;
+    font-size: 2.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 900;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.result>span.nbr::after {
+    content: "%";
+    font-size: 2rem;
+}
+
+.result:hover {
+    transform: scale(1.2);
+    transition: 0.2s ease-in-out;
+}
+
+.total {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 100px;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 2rem;
+}

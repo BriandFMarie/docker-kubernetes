@@ -6,6 +6,7 @@
     line-height: 1.5rem;
     text-transform: uppercase;
     position: relative;
+    box-sizing: border-box;
 }
 
 body {
@@ -98,7 +99,6 @@ div.cat {
 .choice>i {
     font-size: 10rem;
     display: inline;
-    width: 100%;
     text-align: center;
 }
 
